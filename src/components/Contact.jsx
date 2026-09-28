@@ -38,8 +38,8 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contacto" className="border-b border-line bg-bg py-20 lg:py-28">
-      <div className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14">
+    <section id="contacto" className="border-b border-line bg-bg py-20 lg:py-28 overflow-hidden">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-10 lg:px-14">
         
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -60,7 +60,7 @@ export default function Contact() {
             </div>
 
             <div className="space-y-4">
-              <h2 className="font-serifDisplay text-5xl sm:text-6xl text-text leading-[0.98]">
+              <h2 className="font-serifDisplay text-4xl sm:text-6xl text-text leading-[0.98]">
                 ¿Hablamos de tu <br />
                 <span className="italic text-accent font-normal">próximo proyecto?</span>
               </h2>
@@ -83,7 +83,7 @@ export default function Contact() {
           </div>
 
           {/* Columna Derecha: Canales de Contacto en Filas Editoriales */}
-          <div className="lg:col-span-7 border border-line divide-y divide-line bg-surface/10">
+          <div className="lg:col-span-7 border border-line divide-y divide-line bg-surface/10 min-w-0">
             {contactLinks.map((item, idx) => {
               const Icon = item.icon;
               return (
@@ -92,24 +92,28 @@ export default function Contact() {
                   href={item.href}
                   target={item.external ? '_blank' : '_self'}
                   rel={item.external ? 'noopener noreferrer' : ''}
-                  className="group flex items-center justify-between p-6 sm:p-8 hover:bg-surface/50 transition-all duration-300"
+                  className="group flex items-center justify-between p-4 sm:p-8 hover:bg-surface/50 transition-all duration-300 min-w-0 gap-3"
                 >
-                  <div className="flex items-center gap-5">
-                    <div className="p-3 border border-line/60 bg-bg group-hover:border-accent group-hover:text-accent transition-colors">
-                      <Icon className="w-5 h-5" />
+                  <div className="flex items-center gap-3 sm:gap-5 min-w-0 flex-1">
+                    {/* Contenedor del Ícono */}
+                    <div className="p-2.5 sm:p-3 border border-line/60 bg-bg group-hover:border-accent group-hover:text-accent transition-colors shrink-0">
+                      <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
-                    <div>
-                      <span className="block font-sans text-xs uppercase tracking-widest text-text-muted font-semibold">
+                    
+                    {/* Textos de la opción */}
+                    <div className="min-w-0 flex-1 pr-1">
+                      <span className="block font-sans text-[10px] sm:text-xs uppercase tracking-widest text-text-muted font-semibold">
                         {item.label}
                       </span>
-                      <span className="block font-serifDisplay text-xl sm:text-2xl text-text group-hover:text-accent transition-colors mt-0.5">
+                      <span className="block font-serifDisplay text-sm sm:text-xl lg:text-2xl text-text group-hover:text-accent transition-colors mt-0.5 break-all">
                         {item.value}
                       </span>
                     </div>
                   </div>
 
-                  <div className="border border-line bg-bg p-2.5 group-hover:border-accent group-hover:bg-accent group-hover:text-white transition-all duration-300">
-                    <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  {/* Flecha Derecha */}
+                  <div className="border border-line bg-bg p-2 sm:p-2.5 group-hover:border-accent group-hover:bg-accent group-hover:text-white transition-all duration-300 shrink-0">
+                    <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </div>
                 </a>
               );
