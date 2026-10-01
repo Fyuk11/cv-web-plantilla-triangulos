@@ -98,7 +98,7 @@ export default function Hero() {
             <div className="relative w-full h-full overflow-hidden bg-surface">
               {!imgError ? (
                 <img
-                  src="/profile.png"
+                  src="/profile.webp"
                   alt="Rodrigo Gómez"
                   onError={() => setImgError(true)}
                   className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
